@@ -4,9 +4,10 @@ export type IUser = {
   phoneNumber: string;
   role: 'seller' | 'buyer';
   password: string;
-  name: string;
-  firstName: string;
-  lastName: string;
+  name: {
+    firstName: string;
+    lastName: string;
+  };
   address: string;
   budget: number;
   income: number;
