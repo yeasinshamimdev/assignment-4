@@ -24,6 +24,36 @@
             "date": 1687590282279,
             "name": "C:\\course\\next-level\\assignment\\logs\\winston\\error\\assignment-2023-24-06-13-error.log",
             "hash": "c845337eebd9f73ead9b9cfb2b37bd50943d3cf87fd50c8ad4723462b57ad805"
+        },
+        {
+            "date": 1687602014710,
+            "name": "C:\\course\\next-level\\assignment\\logs\\winston\\error\\assignment-2023-24-06-16-error.log",
+            "hash": "e9948e87fa8e73e936f0eec95b7d497edabd3ab49c3826934cc7e90347b13057"
+        },
+        {
+            "date": 1687604567708,
+            "name": "C:\\course\\next-level\\assignment\\logs\\winston\\error\\assignment-2023-24-06-17-error.log",
+            "hash": "ee09a11b1f3a8ee0aa1ece3dead2ec1c917913713d1a6d40cecbb01ada1dda4a"
+        },
+        {
+            "date": 1687621569615,
+            "name": "C:\\course\\next-level\\assignment\\logs\\winston\\error\\assignment-2023-24-06-21-error.log",
+            "hash": "a3a614362cb0c2a9ad113b33e93082d2c6ccb2ba147448d3b54f1ebd27a0b3ac"
+        },
+        {
+            "date": 1687622969416,
+            "name": "C:\\course\\next-level\\assignment\\logs\\winston\\error\\assignment-2023-24-06-22-error.log",
+            "hash": "20df643f0c4e06c5257a64d524eca2f7cc0940f24ed8bdafc4a4ad13b8298ef2"
+        },
+        {
+            "date": 1687626136120,
+            "name": "C:\\course\\next-level\\assignment\\logs\\winston\\error\\assignment-2023-24-06-23-error.log",
+            "hash": "6cd993a181d9d606e08a498c154286486ff62fd4da3e75243cbd988d20ce9667"
+        },
+        {
+            "date": 1687629702323,
+            "name": "C:\\course\\next-level\\assignment\\logs\\winston\\error\\assignment-2023-25-06-00-error.log",
+            "hash": "e496abfe4ae08d44ccebb35723cd7e5dd6c8ce75cc200188ea11faa988823be1"
         }
     ],
     "hashType": "sha256"

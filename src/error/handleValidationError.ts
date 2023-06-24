@@ -6,10 +6,10 @@ const handleValidationError = (
   error: mongoose.Error.ValidationError
 ): IGenericErrorResponse => {
   const errors: IGenericErrorMessage[] = Object.values(error.errors).map(
-    (el: mongoose.Error.ValidatorError | mongoose.Error.CastError) => {
+    (err: mongoose.Error.ValidatorError | mongoose.Error.CastError) => {
       return {
-        path: el?.path,
-        message: el?.message,
+        path: err?.path,
+        message: err?.message,
       };
     }
   );

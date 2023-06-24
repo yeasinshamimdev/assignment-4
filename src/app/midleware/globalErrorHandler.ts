@@ -4,6 +4,7 @@
 /* eslint-disable no-console */
 import { ErrorRequestHandler, NextFunction, Request, Response } from 'express';
 import config from '../../config';
+import CustomApiError from '../../error/CustomError';
 import handleValidationError from '../../error/handleValidationError';
 import { IGenericErrorMessage } from '../../interface/error';
 import { errorLogger } from '../../shared/logger';
@@ -15,8 +16,8 @@ const globalErrorHandler: ErrorRequestHandler = (
   next: NextFunction
 ) => {
   config.env === 'development'
-    ? console.log(`🐱‍🏍 globalErrorHandler ~~`, { error })
-    : errorLogger.error(`🐱‍🏍 globalErrorHandler ~~`, error);
+    ? console.log(`globalErrorHandler ~~`, { error })
+    : errorLogger.error(`globalErrorHandler ~~`, error);
 
   let statusCode = 500;
   let message = 'Something went wrong !';
@@ -27,6 +28,16 @@ const globalErrorHandler: ErrorRequestHandler = (
     statusCode = simplifiedError.statusCode;
     message = simplifiedError.message;
     errorMessages = simplifiedError.errorMessages;
+  } else if (error instanceof CustomApiError) {
+    message = error?.message;
+    errorMessages = error?.message
+      ? [
+          {
+            path: '',
+            message: error?.message,
+          },
+        ]
+      : [];
   }
 
   res.status(statusCode).json({

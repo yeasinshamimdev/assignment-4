@@ -11,11 +11,23 @@ const createUser = catchAsync(async (req: Request, res: Response) => {
   sendResponse<IUser>(res, {
     statusCode: 200,
     success: true,
-    message: 'User created successfull',
+    message: 'User created successfully',
+    data: result,
+  });
+});
+
+const getAllUsers = catchAsync(async (req: Request, res: Response) => {
+  const result = await UserServiceWrapper.getAllUsers();
+
+  sendResponse<IUser[]>(res, {
+    statusCode: 200,
+    success: true,
+    message: 'Users retrieved successfully',
     data: result,
   });
 });
 
 export const userController = {
   createUser,
+  getAllUsers,
 };
