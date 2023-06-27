@@ -1,7 +1,7 @@
 import { z } from 'zod';
-import { userRole } from './userConstants';
+import { userRole } from '../user/userConstants';
 
-const createUserZodSchema = z.object({
+const createAuthUserZodSchema = z.object({
   body: z.object({
     phoneNumber: z.string({
       required_error: 'Phone number is required',
@@ -32,6 +32,6 @@ const createUserZodSchema = z.object({
   }),
 });
 
-export const UserZodValidation = {
-  createUserZodSchema,
+export const AuthUserZodValidation = {
+  createAuthUserZodSchema,
 };

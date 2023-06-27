@@ -4,18 +4,6 @@ import sendResponse from '../../../shared/sendResponse';
 import { IUser } from './user.interface';
 import { UserServiceWrapper } from './user.service';
 
-const createUser = catchAsync(async (req: Request, res: Response) => {
-  const { ...userData } = req.body;
-  const result = await UserServiceWrapper.createUser(userData);
-
-  sendResponse<IUser>(res, {
-    statusCode: 200,
-    success: true,
-    message: 'User created successfully',
-    data: result,
-  });
-});
-
 const getAllUsers = catchAsync(async (req: Request, res: Response) => {
   const result = await UserServiceWrapper.getAllUsers();
 
@@ -27,7 +15,19 @@ const getAllUsers = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getSingleUser = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+
+  const result = await UserServiceWrapper.getSingleUser(id);
+  sendResponse<IUser>(res, {
+    statusCode: 200,
+    success: true,
+    message: 'Single user retrive successfull',
+    data: result,
+  });
+});
+
 export const userController = {
-  createUser,
   getAllUsers,
+  getSingleUser,
 };

@@ -3,9 +3,11 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-console */
 import { ErrorRequestHandler, NextFunction, Request, Response } from 'express';
+import { ZodError } from 'zod';
 import config from '../../config';
 import CustomApiError from '../../error/CustomError';
 import handleValidationError from '../../error/handleValidationError';
+import handleZodValidationError from '../../error/handleZodValidationError';
 import { IGenericErrorMessage } from '../../interface/error';
 import { errorLogger } from '../../shared/logger';
 
@@ -24,10 +26,15 @@ const globalErrorHandler: ErrorRequestHandler = (
   let errorMessages: IGenericErrorMessage[] = [];
 
   if (error?.name === 'ValidationError') {
-    const simplifiedError = handleValidationError(error);
-    statusCode = simplifiedError.statusCode;
-    message = simplifiedError.message;
-    errorMessages = simplifiedError.errorMessages;
+    const errorResponse = handleValidationError(error);
+    statusCode = errorResponse.statusCode;
+    message = errorResponse.message;
+    errorMessages = errorResponse.errorMessages;
+  } else if (error instanceof ZodError) {
+    const errorResponse = handleZodValidationError(error);
+    statusCode = errorResponse.statusCode;
+    message = errorResponse.message;
+    errorMessages = errorResponse.errorMessages;
   } else if (error instanceof CustomApiError) {
     message = error?.message;
     errorMessages = error?.message
