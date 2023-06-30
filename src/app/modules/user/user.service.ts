@@ -11,7 +11,21 @@ const getSingleUser = async (id: string): Promise<IUser | null> => {
   return result;
 };
 
+const updateSingleUser = async (id: string, payload: Partial<IUser>) => {
+  const result = await User.findOneAndUpdate({ _id: id }, payload, {
+    new: true,
+  });
+  return result;
+};
+
+const deleteUser = async (id: string) => {
+  const result = await User.findByIdAndDelete(id);
+  return result;
+};
+
 export const UserServiceWrapper = {
   getAllUsers,
   getSingleUser,
+  updateSingleUser,
+  deleteUser,
 };
