@@ -94,6 +94,26 @@
             "date": 1688051770771,
             "name": "C:\\course\\next-level\\assignment\\logs\\winston\\error\\assignment-2023-29-06-21-error.log",
             "hash": "0274acb5cee93d29ea0aa4b123e6404a3fc810dd1972f4e5b48538e50aa1c5e1"
+        },
+        {
+            "date": 1688179165182,
+            "name": "C:\\course\\next-level\\assignment\\logs\\winston\\error\\assignment-2023-01-07-08-error.log",
+            "hash": "79eaa8c36480fc826e1f98aca0f356e2df2c1a871f6a47e02d18fa0672b28810"
+        },
+        {
+            "date": 1688181075892,
+            "name": "C:\\course\\next-level\\assignment\\logs\\winston\\error\\assignment-2023-01-07-09-error.log",
+            "hash": "49981afe0ea6aa848a76a5bf96d76139d6c6063f44460f0abe7ef743c162f6a5"
+        },
+        {
+            "date": 1688195993763,
+            "name": "C:\\course\\next-level\\assignment\\logs\\winston\\error\\assignment-2023-01-07-13-error.log",
+            "hash": "101e4e34443b6f8c684c0ae40db3181898e67971a88dd4eafbe784d2baf31911"
+        },
+        {
+            "date": 1688271387964,
+            "name": "C:\\course\\next-level\\assignment\\logs\\winston\\error\\assignment-2023-02-07-10-error.log",
+            "hash": "6254a03a141b8de603d4709448b68301b59b506e349b2d72924d99aaf8be9588"
         }
     ],
     "hashType": "sha256"

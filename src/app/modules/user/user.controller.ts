@@ -32,6 +32,15 @@ const updateSingleUser = catchAsync(async (req: Request, res: Response) => {
   const data = req.body;
 
   const result = await UserServiceWrapper.updateSingleUser(id, data);
+  if (!result) {
+    return res.status(404).json({
+      success: false,
+      statusCode: 404,
+      message: 'User not found',
+      data: null,
+    });
+  }
+
   sendResponse<IUser>(res, {
     statusCode: 200,
     success: true,
@@ -42,11 +51,19 @@ const updateSingleUser = catchAsync(async (req: Request, res: Response) => {
 
 const deleteUser = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
-  await UserServiceWrapper.deleteUser(id);
+  const user = await UserServiceWrapper.deleteUser(id);
+  if (!user) {
+    return res.status(404).json({
+      success: false,
+      statusCode: 404,
+      message: 'User not found',
+      data: null,
+    });
+  }
   sendResponse<IUser>(res, {
     statusCode: 200,
     success: true,
-    message: 'Delete usered successfull',
+    message: 'Delete user successfull',
   });
 });
 
