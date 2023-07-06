@@ -114,6 +114,16 @@
             "date": 1688271387944,
             "name": "C:\\course\\next-level\\assignment\\logs\\winston\\success\\assignment-2023-02-07-10-success.log",
             "hash": "f09de49617a1aa996068743e5f31c07d9b0968d6a8fb19ee945304c20a5b16a9"
+        },
+        {
+            "date": 1688274221871,
+            "name": "C:\\course\\next-level\\assignment\\logs\\winston\\success\\assignment-2023-02-07-11-success.log",
+            "hash": "c75309fb6d77bdef69532d5a91ce6c44db6367d78347965831077d5288fa54ec"
+        },
+        {
+            "date": 1688612649437,
+            "name": "C:\\course\\next-level\\assignment\\logs\\winston\\success\\assignment-2023-06-07-09-success.log",
+            "hash": "e2408aca157de19de265a074f8bd82179d2f7c1c628e679d8c5725a033f94563"
         }
     ],
     "hashType": "sha256"

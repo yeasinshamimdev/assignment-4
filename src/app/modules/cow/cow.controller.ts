@@ -1,6 +1,10 @@
 import { Request, Response } from 'express';
+import httpStatus from 'http-status';
+import { paginationField } from '../../../constants/pagination';
 import catchAsync from '../../../shared/catchAsync';
+import pick from '../../../shared/pick';
 import sendResponse from '../../../shared/sendResponse';
+import { cowFilterableFields } from './cow.constant';
 import { ICow } from './cow.interface';
 import { CowServiceWrapper } from './cow.service';
 
@@ -17,13 +21,17 @@ const createCow = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getAllCow = catchAsync(async (req: Request, res: Response) => {
-  const result = await CowServiceWrapper.getAllCow();
+  const filters = pick(req.query, cowFilterableFields);
+  const paginationOptions = pick(req.query, paginationField);
+
+  const result = await CowServiceWrapper.getAllCow(filters, paginationOptions);
 
   sendResponse<ICow[]>(res, {
-    statusCode: 200,
+    statusCode: httpStatus.OK,
     success: true,
-    message: 'Cow Retrive successfully',
-    data: result,
+    message: 'Semesters retrieved successfully !',
+    meta: result.meta,
+    data: result.data,
   });
 });
 
