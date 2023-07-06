@@ -9,11 +9,10 @@ const CustomError_1 = __importDefault(require("../../error/CustomError"));
 const handleCastError_1 = __importDefault(require("../../error/handleCastError"));
 const handleValidationError_1 = __importDefault(require("../../error/handleValidationError"));
 const handleZodValidationError_1 = __importDefault(require("../../error/handleZodValidationError"));
-const logger_1 = require("../../shared/logger");
 const globalErrorHandler = (error, req, res, next) => {
     config_1.default.env === 'development'
         ? console.log(`globalErrorHandler ~~`, { error })
-        : logger_1.errorLogger.error(`globalErrorHandler ~~`, error);
+        : console.log(`globalErrorHandler ~~`, error);
     let statusCode = 500;
     let message = 'Something went wrong !';
     let errorMessages = [];
