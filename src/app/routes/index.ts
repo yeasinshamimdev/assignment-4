@@ -12,15 +12,15 @@ const moduleRoutes = [
     route: AuthRouter,
   },
   {
-    path: '/user',
+    path: '/users',
     route: UserRouter,
   },
   {
-    path: '/cow',
+    path: '/cows',
     route: CowRouter,
   },
   {
-    path: '/order',
+    path: '/orders',
     route: OrderRouter,
   },
 ];
