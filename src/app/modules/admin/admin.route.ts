@@ -10,6 +10,7 @@ router.post(
   validateRequest(AdminZodSchema.createAdminZodSchema),
   AdminController.createAdmin
 );
+
 router.post(
   '/login',
   validateRequest(AdminZodSchema.loginAdminZodSchema),

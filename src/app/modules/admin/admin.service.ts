@@ -3,7 +3,8 @@ import { Secret } from 'jsonwebtoken';
 import config from '../../../config';
 import CustomApiError from '../../../error/CustomError';
 import { JwtHelper } from '../../../helper/jwtHelper';
-import { IAdmin, IAdminLogin, ILoginAdminResponse } from './admin.interface';
+import { ILoginUserResponse, IUserLogin } from '../../../interface/common';
+import { IAdmin, } from './admin.interface';
 import Admin from './admin.model';
 
 const createAdminUser = async (payload: IAdmin): Promise<IAdmin> => {
@@ -15,7 +16,7 @@ const createAdminUser = async (payload: IAdmin): Promise<IAdmin> => {
   return adminDataWithoutPassword;
 };
 
-const adminLogin = async (payload: IAdminLogin): Promise<ILoginAdminResponse> => {
+const adminLogin = async (payload: IUserLogin): Promise<ILoginUserResponse> => {
   const { phoneNumber, password } = payload;
 
   // find admin on dadabase

@@ -14,3 +14,13 @@ export type IGenericResponse<T> = {
   };
   data: T;
 };
+
+export type IUserLogin = {
+  phoneNumber: string;
+  password: string;
+}
+
+export type ILoginUserResponse = {
+  accessToken: string;
+  refreshToken?: string;
+};

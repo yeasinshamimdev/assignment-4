@@ -13,16 +13,6 @@ export type IAdmin = {
   address: string;
 }
 
-export type IAdminLogin = {
-  phoneNumber: string;
-  password: string;
-}
-
-export type ILoginAdminResponse = {
-  accessToken: string;
-  refreshToken?: string;
-};
-
 export type IAdminModel = {
   isAdminExist(
     phoneNumber: string
