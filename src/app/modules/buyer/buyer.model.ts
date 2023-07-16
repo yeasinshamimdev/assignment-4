@@ -43,10 +43,8 @@ buyerSchema.statics.isPasswordMatched = async function (
 
 buyerSchema.pre('save', async function (next) {
   // hashing user password
-  // eslint-disable-next-line @typescript-eslint/no-this-alias
-  const user = this;
-  user.password = await bcrypt.hash(
-    user.password as string,
+  this.password = await bcrypt.hash(
+    this.password as string,
     Number(config.bycrypt_salt_rounds)
   );
 

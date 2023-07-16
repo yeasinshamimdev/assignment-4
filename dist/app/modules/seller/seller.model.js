@@ -32,9 +32,7 @@ sellerSchema.statics.isPasswordMatched = async function (givenPassword, savedPas
 };
 sellerSchema.pre('save', async function (next) {
     // hashing user password
-    // eslint-disable-next-line @typescript-eslint/no-this-alias
-    const user = this;
-    user.password = await bcrypt_1.default.hash(user.password, Number(config_1.default.bycrypt_salt_rounds));
+    this.password = await bcrypt_1.default.hash(this.password, Number(config_1.default.bycrypt_salt_rounds));
     next();
 });
 exports.Seller = (0, mongoose_1.model)('Seller', sellerSchema);
