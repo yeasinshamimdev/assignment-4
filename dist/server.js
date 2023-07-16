@@ -7,7 +7,6 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const app_1 = __importDefault(require("./app"));
 const config_1 = __importDefault(require("./config"));
 process.on('uncaughtException', error => {
-    console.log(error);
     process.exit(1);
 });
 let server;
