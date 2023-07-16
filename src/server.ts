@@ -4,7 +4,6 @@ import app from './app';
 import config from './config';
 
 process.on('uncaughtException', error => {
-  console.log(error);
   process.exit(1);
 });
 
