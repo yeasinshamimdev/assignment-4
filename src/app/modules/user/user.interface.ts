@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { Model, Schema, Types } from 'mongoose';
+import { Model, Schema } from 'mongoose';
 import { IAdmin } from '../admin/admin.interface';
 
 export type IUserRole = 'seller' | 'buyer' | 'admin';
@@ -16,9 +16,9 @@ export type IUser = {
   address: string;
   budget: number;
   income: number;
-  buyer?: Types.ObjectId | IUser;
-  seller?: Types.ObjectId | IUser;
-  admin?: Types.ObjectId | IAdmin;
+  buyer?: Schema.Types.ObjectId | IUser;
+  seller?: Schema.Types.ObjectId | IUser;
+  admin?: Schema.Types.ObjectId | IAdmin;
 };
 
 export type IUserModel = {

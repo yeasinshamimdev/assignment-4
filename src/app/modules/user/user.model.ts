@@ -31,7 +31,12 @@ const userSchema = new Schema<IUser, IUserModel>(
       ref: 'Admin',
     },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+    toJSON: {
+      virtuals: true
+    }
+  }
 );
 
 userSchema.statics.isUserExist = async function (

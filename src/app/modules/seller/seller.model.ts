@@ -1,4 +1,6 @@
+import bcrypt from 'bcrypt';
 import { Schema, model } from 'mongoose';
+import config from '../../../config';
 import { IUser, IUserModel } from '../user/user.interface';
 
 const sellerSchema = new Schema<IUser, IUserModel>(
@@ -14,8 +16,43 @@ const sellerSchema = new Schema<IUser, IUserModel>(
     budget: { type: Number, required: true },
     income: { type: Number, required: true },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+    toJSON: {
+      virtuals: true
+    }
+  },
+
 );
+
+sellerSchema.statics.isAdminExist = async function (
+  phoneNumber: string
+): Promise<IUser | null> {
+  return await Seller.findOne(
+    { phoneNumber },
+    { _id: 1, password: 1, role: 1 }
+  );
+};
+
+sellerSchema.statics.isPasswordMatched = async function (
+  givenPassword: string,
+  savedPassword: string
+): Promise<boolean> {
+  return await bcrypt.compare(givenPassword, savedPassword);
+};
+
+
+sellerSchema.pre('save', async function (next) {
+  // hashing user password
+  // eslint-disable-next-line @typescript-eslint/no-this-alias
+  const user = this;
+  user.password = await bcrypt.hash(
+    user.password as string,
+    Number(config.bycrypt_salt_rounds)
+  );
+
+  next();
+});
 
 
 export const Seller = model<IUser, IUserModel>('Seller', sellerSchema);

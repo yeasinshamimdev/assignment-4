@@ -14,7 +14,12 @@ const cowSchema = new Schema<ICow, ICowModel>(
     category: { type: String, enum: cowCategory, required: true },
     seller: { type: Schema.Types.ObjectId, ref: 'User', required: true },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+    toJSON: {
+      virtuals: true
+    }
+  }
 );
 
 export const Cow = model<ICow, ICowModel>('Cow', cowSchema);
