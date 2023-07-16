@@ -13,5 +13,10 @@ const cowSchema = new mongoose_1.Schema({
     label: { type: String, enum: cow_constant_1.cowLavel, default: 'for sale' },
     category: { type: String, enum: cow_constant_1.cowCategory, required: true },
     seller: { type: mongoose_1.Schema.Types.ObjectId, ref: 'User', required: true },
-}, { timestamps: true });
+}, {
+    timestamps: true,
+    toJSON: {
+        virtuals: true
+    }
+});
 exports.Cow = (0, mongoose_1.model)('Cow', cowSchema);

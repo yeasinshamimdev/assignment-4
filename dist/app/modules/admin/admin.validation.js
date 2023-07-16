@@ -1,14 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AuthUserZodValidation = void 0;
+exports.AdminZodSchema = void 0;
 const zod_1 = require("zod");
-const userConstants_1 = require("../user/userConstants");
-const createAuthUserZodSchema = zod_1.z.object({
+const createAdminZodSchema = zod_1.z.object({
     body: zod_1.z.object({
         phoneNumber: zod_1.z.string({
             required_error: 'Phone number is required',
         }),
-        role: zod_1.z.enum([...userConstants_1.userRole], {
+        role: zod_1.z.enum(['admin'], {
             required_error: 'Role is required',
         }),
         password: zod_1.z.string({
@@ -24,16 +23,10 @@ const createAuthUserZodSchema = zod_1.z.object({
         }),
         address: zod_1.z.string({
             required_error: 'Address is required',
-        }),
-        budget: zod_1.z.number({
-            required_error: 'Budget is required',
-        }),
-        income: zod_1.z.number({
-            required_error: 'Income is required',
-        }),
+        })
     }),
 });
-const loginUserZodSchema = zod_1.z.object({
+const loginAdminZodSchema = zod_1.z.object({
     body: zod_1.z.object({
         phoneNumber: zod_1.z.string({
             required_error: 'Phone number is required',
@@ -43,15 +36,7 @@ const loginUserZodSchema = zod_1.z.object({
         })
     }),
 });
-const refreshTokenZodSchema = zod_1.z.object({
-    cookies: zod_1.z.object({
-        refreshToken: zod_1.z.string({
-            required_error: 'Refresh Token is required',
-        }),
-    }),
-});
-exports.AuthUserZodValidation = {
-    createAuthUserZodSchema,
-    loginUserZodSchema,
-    refreshTokenZodSchema
+exports.AdminZodSchema = {
+    createAdminZodSchema,
+    loginAdminZodSchema
 };
